@@ -24,6 +24,7 @@ module.exports.loop = () => {
 
 }
 ```
+![Screenshot](telegram-screeps.png)
 
 ## Installation
 - Download / clone this repo
