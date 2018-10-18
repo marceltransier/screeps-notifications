@@ -25,7 +25,6 @@ const gunzipPromise = (buffer) => new Promise((resolve, reject) => {
 })
 
 
-//;(async() => {
 schedule.scheduleJob('* * * * *', async () => {
 
   let res = await httpsRequestPromise({
@@ -52,13 +51,12 @@ schedule.scheduleJob('* * * * *', async () => {
     const dateString = new Date(notification.unixTime).toLocaleString()
     const message = `${dateString} | ${notification.screepsTime} | ${notification.msg}`
 
-    console.log(await httpsRequestPromise({
+    await httpsRequestPromise({
       hostname: 'api.telegram.org',
       path: `/bot${config.telegram.token}/sendMessage?chat_id=${config.telegram.chatid}&text=${encodeURIComponent(message)}`,
       method: 'GET'
-    }))
+    })
   }
 
 
 })
-//().catch(err => console.error(err))
